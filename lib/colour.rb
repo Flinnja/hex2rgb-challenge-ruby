@@ -20,8 +20,8 @@ def rgb_to_hex(rgb_map)
 	hex_code = "#"
 
 	rgb_map.each do |k, v|
-		if !k.to_s.downcase.delete("rgb").empty? || v > 255 || v < 0
-			raise "#{rgb_map} is not a valid hash of rgb values in 256 bit colour space; expected a hash with keys r g b and values between 0 and 255"
+		if rgb_map.length != 3|| !k.to_s.downcase.delete("rgb").empty? || v > 255 || v < 0
+			raise "#{rgb_map} is not a valid hash of rgb values in 256 bit colour space; expected a hash of length 3 with keys r g b and values between 0 and 255"
 		end
 
 		this_hex = v.to_s(16)
