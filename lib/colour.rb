@@ -18,6 +18,7 @@ end
 
 def rgb_to_hex(rgb_map)
 	hex_code = "#"
+	hex_map = { r: "", g: "", b: ""}
 
 	rgb_map.each do |k, v|
 		if rgb_map.length != 3|| !k.to_s.downcase.delete("rgb").empty? || v > 255 || v < 0
@@ -28,9 +29,11 @@ def rgb_to_hex(rgb_map)
 		if this_hex.length == 1
 			this_hex = "0#{this_hex}"
 		end
-		hex_code += this_hex
+
+		hex_map[k] = this_hex
 	end
 
+	hex_code += hex_map[:r] + hex_map[:g] + hex_map[:b]
 	return hex_code
 end
 
